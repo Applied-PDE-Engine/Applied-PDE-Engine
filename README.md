@@ -1,127 +1,95 @@
 <div align="center">
 
-# Applied PDE Engine
-
-**A foundational C++11 computational engine bridging undergraduate mathematical analysis with numerical modeling of Partial Differential Equations (PDEs).**
+<h1>Applied Mathematics &amp; Computational Modeling</h1>
 
 <p>
-  <img src="https://shields.io" alt="C++11" />
-  <img src="https://shields.io" alt="Applied Math" />
-  <img src="https://shields.io" alt="L1 Math" />
-  <img src="https://shields.io" alt="License" />
+  <strong>First-Year Mathematics Undergraduate (L1) &bull; C++ Systems &amp; Numerical Simulation Developer</strong>
+</p>
+
+<p>
+  <em>Translating pure mathematical analysis and differential equations into deterministic, high-performance C++ engines.</em>
+</p>
+
+<p>
+  <img src="https://shields.io" alt="PDEs" />
+  <img src="https://shields.io" alt="C++" />
+  <img src="https://shields.io" alt="Python" />
+  <img src="https://shields.io" alt="Linux" />
 </p>
 
 </div>
 
 <hr />
 
-<h2>1. Academic & Mathematical Motivation</h2>
+<h2>About Me</h2>
 
 <p>
-Developed as a first-year mathematics undergraduate (<strong>L1 Mathematics</strong>), this project acts as a practical laboratory to translate theoretical calculus and analysis concepts into deterministic, executable C++ algorithms:
+I am a first-year university student majoring in <strong>Mathematics (L1)</strong> with a dedicated focus on <strong>Applied Mathematics</strong>, <strong>Partial Differential Equations (EDP)</strong>, and <strong>Physics Simulation</strong>. Rather than treating mathematics and programming as separate disciplines, I use software engineering as a laboratory to discretize, test, and visualize analytical concepts from first principles.
 </p>
 
 <ul>
-  <li><strong>Taylor Expansions &amp; Discretization:</strong> Approximating continuous partial derivatives on discrete grids using truncated Taylor series (Finite Differences).</li>
-  <li><strong>Sequences &amp; Convergence:</strong> Studying numerical stability, boundedness, and iterative convergence of grid states across discrete time steps.</li>
-  <li><strong>First-Principles Implementation:</strong> Building solvers from scratch using standard C++ without external mathematical black-box libraries.</li>
+  <li><strong>Mathematical Core:</strong> Mathematical Analysis (Sequences, Convergence, Taylor Expansions), Linear Algebra, and Numerical Discretization.</li>
+  <li><strong>Engineering Philosophy:</strong> Zero-overhead abstractions, cache-friendly memory layouts, and writing numerical solvers from scratch without relying on black-box libraries.</li>
+  <li><strong>Current Focus:</strong> Developing modular C++ engines for finite difference modeling and physical simulations.</li>
 </ul>
 
 <hr />
 
-<h2>2. Implemented Mathematical Models</h2>
-
-<p>The engine currently focuses on classical 1D and 2D second-order Partial Differential Equations:</p>
+<h2>Featured Project</h2>
 
 <table>
   <thead>
     <tr>
-      <th>Equation Type</th>
-      <th>Mathematical Formulation</th>
-      <th>Discretization Scheme</th>
+      <th>Project</th>
+      <th>Mathematical &amp; Technical Scope</th>
+      <th>Stack</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>1D Heat Equation</strong><br /><em>(Parabolic)</em></td>
-      <td>$$\frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}$$</td>
-      <td>Forward-Time Central-Space (FTCS)</td>
-    </tr>
-    <tr>
-      <td><strong>1D Wave Equation</strong><br /><em>(Hyperbolic)</em></td>
-      <td>$$\frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}$$</td>
-      <td>Central Finite Difference (Explicit)</td>
+      <td><strong>Applied PDE Engine</strong></td>
+      <td>A lightweight computational engine for discretizing and solving 1D/2D parabolic and hyperbolic PDEs (Heat &amp; Wave equations) with explicit CFL stability enforcement.</td>
+      <td><code>C++11</code> <code>STL</code> <code>FDM</code></td>
     </tr>
   </tbody>
 </table>
 
-<h3>Numerical Discretization &amp; Stability</h3>
-
-<p>For the 1D thermal diffusion model, the continuous domain is discretized into spatial nodes <code>i</code> and time steps <code>n</code>:</p>
-
-$$u_i^{n+1} = u_i^n + \frac{\alpha \Delta t}{\Delta x^2} \left(u_{i+1}^n - 2u_i^n + u_{i-1}^n\right)$$
-
-<p>To prevent numerical divergence and ensure sequence convergence, the engine enforces the <strong>Courant–Friedrichs–Lewy (CFL)</strong> stability condition:</p>
-
-$$r = \frac{\alpha \Delta t}{\Delta x^2} \le \frac{1}{2}$$
-
 <hr />
 
-<h2>3. Technical Architecture</h2>
+<h2>Technical &amp; Mathematical Toolkit</h2>
 
-<ul>
-  <li><strong>Memory Efficiency:</strong> Utilizes contiguous memory allocation (<code>std::vector</code>) for cache-friendly spatial grid updates.</li>
-  <li><strong>Boundary Conditions:</strong> Supports fixed Dirichlet boundary constraints ($u(0, t) = a$, $u(L, t) = b$).</li>
-  <li><strong>Data Export:</strong> Outputs simulation states to <code>.csv</code> files for external visualization and analytical verification.</li>
-</ul>
-
-<details>
-<summary><strong>Click to view Project Directory Structure</strong></summary>
-<br />
-
-<pre><code>Applied-PDE-Engine/
-├── include/
-│   ├── Grid.hpp          # Spatial domain &amp; mesh discretization
-│   └── Solvers.hpp       # Finite difference time-stepping algorithms
-├── src/
-│   ├── Grid.cpp
-│   ├── Solvers.cpp
-│   └── main.cpp          # Initial conditions &amp; simulation parameters
-├── output/               # Exported CSV numerical results
-└── README.md
-</code></pre>
-
-</details>
-
-<hr />
-
-<h2>4. Build &amp; Execution</h2>
-
-<p><strong>Prerequisites:</strong> A C++11 compatible compiler (<code>g++</code> or <code>clang++</code>) on Linux/Ubuntu.</p>
-
-<pre><code># Clone the repository
-git clone https://github.com
-cd Applied-PDE-Engine
-
-# Compile with optimization flags
-g++ -std=c++11 -O2 src/*.cpp -Iinclude -o pde_engine
-
-# Run the simulation
-./pde_engine
-</code></pre>
-
-<hr />
-
-<h2>5. Roadmap</h2>
-
-<ul>
-  <li>Implement Neumann boundary conditions (zero-flux / insulated boundaries).</li>
-  <li>Add 2D Laplace &amp; Poisson steady-state solvers (Jacobi &amp; Gauss-Seidel iterations).</li>
-  <li>Integrate real-time graphical rendering for grid evolution.</li>
-</ul>
+<table>
+  <tr>
+    <td width="33%" valign="top">
+      <h3>Mathematics</h3>
+      <ul>
+        <li>Real Analysis &amp; Calculus</li>
+        <li>Partial Differential Equations (PDEs)</li>
+        <li>Finite Difference Methods (FDM)</li>
+        <li>Numerical Stability (CFL)</li>
+      </ul>
+    </td>
+    <td width="33%" valign="top">
+      <h3>Core Languages</h3>
+      <ul>
+        <li><strong>C++11:</strong> Performance optimization &amp; algorithmic rigor</li>
+        <li><strong>Python:</strong> Rapid prototyping &amp; data plotting</li>
+        <li><strong>Lua:</strong> Lightweight scripting</li>
+      </ul>
+    </td>
+    <td width="33%" valign="top">
+      <h3>Frameworks &amp; Tools</h3>
+      <ul>
+        <li><strong>Qt6 &amp; SFML:</strong> Desktop &amp; real-time visualization</li>
+        <li><strong>Linux (Ubuntu):</strong> Primary development environment</li>
+        <li><strong>Git &amp; LaTeX:</strong> Version control &amp; mathematical documentation</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 <hr />
 
 <div align="center">
-  <p><strong>Author:</strong> <a href="https://github.com">sjmDeveloper</a> — First-Year Mathematics Student (L1) &amp; C++ Developer</p>
+  <p><em>"Mathematics provides the model; C++ provides the deterministic execution."</em></p>
 </div>
