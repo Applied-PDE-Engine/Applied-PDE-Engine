@@ -10,20 +10,6 @@
   <em>Translating pure mathematical analysis and differential equations into deterministic, high-performance C++ engines.</em>
 </p>
 
-<p>
-  <a href="https://wikipedia.org" target="_blank">
-    <img src="https://shields.io" alt="PDEs" />
-  </a>
-  <a href="https://isocpp.org" target="_blank">
-    <img src="https://shields.io" alt="C++" />
-  </a>
-  <a href="https://python.org" target="_blank">
-    <img src="https://shields.io" alt="Python" />
-  </a>
-  <a href="https://ubuntu.com" target="_blank">
-    <img src="https://shields.io" alt="Linux" />
-  </a>
-</p>
 
 <p>
   <a href="#about-me">About Me</a> &bull;
